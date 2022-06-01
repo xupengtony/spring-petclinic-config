@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: spring-petclinic
+  namespace: spring-petclinic
+spec:
+  releaseName: i-petclinic
+  chart:
+    spec:
+      chart: ./base/chart
+      version: ">=0.1.0"
+      sourceRef:
+        kind: GitRepository
+        name: spring-petclinic-config-repo
+        namespace: flux-system
+  interval: 1m
+  values:
+    replicaCount: 1

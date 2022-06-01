@@ -1,0 +1,9 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: spring-petclinic
+  namespace: spring-petclinic
+spec:
+  interval: 1m
+  values:
+    replicaCount: 3
